@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <v-codemirror></v-codemirror>
+    <input type="text" v-test="test">
+    {{test}}
   </div>
 </template>
 
 <script>
-import VCodemirror from './components/v-codemirror/';
-
+require('./directive.js')
 export default {
-  components: {
-    VCodemirror,
-  },
+  data() {
+    return {
+      test:1
+    }
+  }
 };
 </script>
 

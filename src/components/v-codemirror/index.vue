@@ -1,5 +1,7 @@
 <template>
-    <textarea v-el:editor></textarea>
+    <div class="wrap">
+      <textarea v-el:editor></textarea>
+    </div>
 </template>
 <script>
     import CodeMirror from './alias';
@@ -13,15 +15,17 @@
                 const editor = CodeMirror.fromTextArea(dom, {
                     lineNumbers: true,
                     mode: 'application/json',
-                    lint: true,
-                    gutters: ['CodeMirror-lint-markers'],
                     readOnly: readOnly ? 'nocursor' : false,
-                    tabSize: 2,
-                    styleActiveLine: true
+                    tabSize: 2
                 })
             }
         }
     };
 </script>
 <style>
+  .wrap{
+    display: block;
+    width: 500px;
+    height: 300px
+  }
 </style>
