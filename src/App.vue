@@ -2,6 +2,7 @@
   <div id="app">
     <input type="text" v-test="test">
     {{test}}
+    <textarea v-codemirror="code" mode="json"></textarea>
   </div>
 </template>
 
@@ -10,8 +11,14 @@ require('./directive.js')
 export default {
   data() {
     return {
-      test:1
+      test:'1',
+      code: ''
     }
+  },
+  ready() {
+    setTimeout(() => {
+      this.code = '{"a":"1"}';
+    },2000)
   }
 };
 </script>
@@ -31,7 +38,7 @@ body {
 #app {
   color: #2c3e50;
   margin-top: -100px;
-  max-width: 600px;
+  /* max-width: 600px; */
   font-family: Source Sans Pro, Helvetica, sans-serif;
   text-align: center;
 }
